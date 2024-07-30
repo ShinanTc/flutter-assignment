@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import '../../values/colors.dart';
 
 class DepartmentScreen extends StatelessWidget {
@@ -24,18 +26,59 @@ class DepartmentScreen extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
             ),
-            // const SizedBox(height: 16),
-            // DataTable(
-            //   columns: const [
-            //     DataColumn(label: Text('ID')),
-            //     DataColumn(label: Text('Name')),
-            //     DataColumn(label: Text('Number of Employees')),
-            //     DataColumn(label: Text('Actions')),
-            //   ],
-            //   rows: [
-            //     // TODO: Populate with department data
-            //   ],
-            // ),
+            const SizedBox(height: 16),
+            Theme(
+              data: Theme.of(context).copyWith(
+                dividerColor: Colors.black, // Adjust color as needed
+              ),
+              child: DataTable(columns: const [
+                DataColumn(label: Text('ID')),
+                DataColumn(label: Text('Name')),
+                DataColumn(label: Text('Number of Employees')),
+                DataColumn(label: Text('Actions')),
+              ], rows: [
+                DataRow(cells: [
+                  DataCell(Container(
+                    decoration:
+                        BoxDecoration(border: Border.all(color: Colors.black)),
+                    child: const Padding(
+                        padding: EdgeInsets.all(8.0), child: Text("1")),
+                  )),
+                  DataCell(Container(
+                    decoration:
+                        BoxDecoration(border: Border.all(color: Colors.black)),
+                    child: const Padding(
+                        padding: EdgeInsets.all(8.0), child: Text("1")),
+                  )),
+                  DataCell(Container(
+                    decoration:
+                        BoxDecoration(border: Border.all(color: Colors.black)),
+                    child: const Padding(
+                        padding: EdgeInsets.all(8.0), child: Text("1")),
+                  )),
+                  DataCell(Container(
+                    decoration:
+                        BoxDecoration(border: Border.all(color: Colors.black)),
+                    child: const Padding(
+                        padding: EdgeInsets.all(8.0), child: Text("1")),
+                  )),
+                ])
+              ]
+
+                  // DataRow(cells: [
+                  //   DataCell(Text("1")),
+                  //   DataCell(Text("John Doe")),
+                  //   DataCell(Text("10")),
+                  //   DataCell(Text("This is the action")),
+                  // ]),
+                  // DataRow(cells: [
+                  //   DataCell(Text("2")),
+                  //   DataCell(Text("John Boe")),
+                  //   DataCell(Text("20")),
+                  //   DataCell(Text("This is not the action")),
+                  // ]),
+                  ),
+            ),
           ],
         ),
       ),

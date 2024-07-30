@@ -15,7 +15,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const DepartmentScreen(),
-      // home: const Text("This is our department section"),
     );
   }
 }
