@@ -6,8 +6,8 @@ import '../../values/padding.dart';
 import '../utils/tables/department_table.dart';
 import '../utils/tables/employee_table.dart';
 
-class DepartmentScreen extends StatelessWidget {
-  const DepartmentScreen({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class DepartmentScreen extends StatelessWidget {
               child: CustomButton(text: 'Create New Department'),
             ),
           ),
-          SizedBox(height: 16),
+          SizedBox(height: 12),
           Align(
             alignment: Alignment.centerLeft,
             child: Padding(padding: tablePadding, child: DepartmentTable()),
@@ -34,7 +34,7 @@ class DepartmentScreen extends StatelessWidget {
               child: CustomButton(text: 'Add New Employee'),
             ),
           ),
-          SizedBox(height: 16),
+          SizedBox(height: 12),
           Align(
             alignment: Alignment.centerLeft,
             child: Padding(padding: tablePadding, child: EmployeeTable()),
