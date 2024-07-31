@@ -30,7 +30,7 @@ class DepartmentScreen extends StatelessWidget {
             alignment: Alignment.topLeft,
             child: Padding(
               padding: EdgeInsets.fromLTRB(40, 64, 0, 0),
-              child: CustomButton(text: 'Create New Employee'),
+              child: CustomButton(text: 'Add New Employee'),
             ),
           ),
           SizedBox(height: 16),
