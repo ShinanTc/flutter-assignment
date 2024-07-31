@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 import '../../values/values.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key, required this.text});
+  const CustomButton({super.key, required this.text, required this.onPressed});
   final String text; // Add a string property to hold the button text
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {
-        // TODO: Implement create new department logic
-      },
+      onPressed: onPressed,
       style: ElevatedButton.styleFrom(
           backgroundColor: primaryColor,
           shape:

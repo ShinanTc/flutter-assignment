@@ -7,36 +7,58 @@ import '../../values/values.dart';
 import '../utils/tables/department_table.dart';
 import '../utils/tables/employee_table.dart';
 
+import '../modals/create_edit_department_modal.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         children: [
           Align(
             alignment: Alignment.topLeft,
             child: Padding(
               padding: buttonPadding,
-              child: CustomButton(text: 'Create New Department'),
+              child: CustomButton(
+                text: 'Create New Department',
+                onPressed: () {
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return const CreateEditDepartmentModal();
+                    },
+                  );
+                },
+              ),
             ),
           ),
-          SizedBox(height: 12),
-          Align(
+          const SizedBox(height: 12),
+          const Align(
             alignment: Alignment.centerLeft,
             child: Padding(padding: tablePadding, child: DepartmentTable()),
           ),
-          SizedBox(height: 32),
+          const SizedBox(height: 32),
           Align(
             alignment: Alignment.topLeft,
             child: Padding(
               padding: buttonPadding,
-              child: CustomButton(text: 'Add New Employee'),
+              child: CustomButton(
+                text: 'Add New Employee',
+                onPressed: () {
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return const CreateEditDepartmentModal();
+                    },
+                  );
+                },
+              ),
             ),
           ),
-          SizedBox(height: 12),
-          Align(
+          const SizedBox(height: 12),
+          const Align(
             alignment: Alignment.centerLeft,
             child: Padding(padding: tablePadding, child: EmployeeTable()),
           ),
