@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+
 import '../../ui/utils/custom_button.dart';
-import '../utils/tables/department_table.dart';
 import '../../values/padding.dart';
 
+import '../utils/tables/department_table.dart';
 import '../utils/tables/employee_table.dart';
 
 class DepartmentScreen extends StatelessWidget {
