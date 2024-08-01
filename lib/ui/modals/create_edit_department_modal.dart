@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import '../utils/custom_button.dart';
 
 class CreateEditDepartmentModal extends StatelessWidget {
   const CreateEditDepartmentModal({super.key});
@@ -60,6 +60,14 @@ class CreateEditDepartmentModal extends StatelessWidget {
                         ),
                       ),
                     ),
+                    const SizedBox(height: 40),
+                    SizedBox(
+                        width: 330,
+                        height: 40,
+                        child: CustomButton(
+                          text: 'Save',
+                          onPressed: () {},
+                        )),
                   ],
                 ),
               ),
