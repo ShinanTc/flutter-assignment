@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-
 import '../../ui/utils/custom_button.dart';
-
 import '../../values/values.dart';
-
 import '../utils/tables/department_table.dart';
 import '../utils/tables/employee_table.dart';
-
 import '../modals/create_edit_department_modal.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -26,6 +22,10 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () {
                   showModalBottomSheet(
                     context: context,
+                    isScrollControlled: true,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                     builder: (BuildContext context) {
                       return const CreateEditDepartmentModal();
                     },
