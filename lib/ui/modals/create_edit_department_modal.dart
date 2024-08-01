@@ -33,6 +33,36 @@ class CreateEditDepartmentModal extends StatelessWidget {
                   border: Border(
                       top: BorderSide(color: Colors.black),
                       left: BorderSide(color: Colors.black))),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(30, 60, 0, 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Create / Edit Department",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(height: 30),
+                    const Text(
+                      "Name",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      width: 330,
+                      height: 40,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Name',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(3.0),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
           )
         ],
