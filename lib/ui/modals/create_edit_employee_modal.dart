@@ -62,6 +62,40 @@ class CreateEditEmployeeModal extends StatelessWidget {
                         ),
                       ),
                     ),
+                    const SizedBox(height: 10),
+                    const Text(
+                      "Date of Birth",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      width: 330,
+                      height: 40,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Date of Birth',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(3.0),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    const Text(
+                      "Department",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      width: 330,
+                      height: 40,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Department',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(3.0),
+                          ),
+                        ),
+                      ),
+                    ),
                     const SizedBox(height: 25),
                     SizedBox(
                         width: 330,
