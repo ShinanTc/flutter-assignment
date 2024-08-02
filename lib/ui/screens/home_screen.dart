@@ -49,6 +49,10 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () {
                   showModalBottomSheet(
                     context: context,
+                    isScrollControlled: true,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                     builder: (BuildContext context) {
                       return const CreateEditDepartmentModal();
                     },

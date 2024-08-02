@@ -31,8 +31,10 @@ class CreateEditDepartmentModal extends StatelessWidget {
                   color: Color.fromARGB(255, 244, 241, 241),
                   borderRadius: BorderRadius.zero,
                   border: Border(
-                      top: BorderSide(color: Colors.black),
-                      left: BorderSide(color: Colors.black))),
+                      top:
+                          BorderSide(color: Color.fromARGB(255, 189, 183, 183)),
+                      left: BorderSide(
+                          color: Color.fromARGB(255, 189, 183, 183)))),
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(30, 60, 0, 0),
                 child: Column(
