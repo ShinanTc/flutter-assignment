@@ -4,6 +4,7 @@ import '../../values/values.dart';
 import '../utils/tables/department_table.dart';
 import '../utils/tables/employee_table.dart';
 import '../modals/create_edit_department_modal.dart';
+import '../modals/create_edit_employee_modal.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -54,7 +55,7 @@ class HomeScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     builder: (BuildContext context) {
-                      return const CreateEditDepartmentModal();
+                      return const CreateEditEmployeeModal();
                     },
                   );
                 },

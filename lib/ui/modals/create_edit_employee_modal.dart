@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../utils/custom_button.dart';
 
-class CreateEditDepartmentModal extends StatelessWidget {
-  const CreateEditDepartmentModal({super.key});
+class CreateEditEmployeeModal extends StatelessWidget {
+  const CreateEditEmployeeModal({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class CreateEditDepartmentModal extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
             child: Text(
-              "Create / Edit Department",
+              "Create / Edit Employee",
               textAlign: TextAlign.left,
             ),
           ),
@@ -41,7 +41,7 @@ class CreateEditDepartmentModal extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      "Create / Edit Department",
+                      "Create / Edit Employee",
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
