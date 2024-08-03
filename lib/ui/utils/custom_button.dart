@@ -3,7 +3,7 @@ import '../../values/values.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({super.key, required this.text, required this.onPressed});
-  final String text; // Add a string property to hold the button text
+  final String text;
   final VoidCallback onPressed;
 
   @override

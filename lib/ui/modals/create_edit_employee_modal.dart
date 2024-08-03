@@ -6,9 +6,6 @@ class CreateEditEmployeeModal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // for getting the screen height (used for making the modal to take majority o the screen height)
-    // final screenHeight = (MediaQuery.of(context).size.height) - 100;
-
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
