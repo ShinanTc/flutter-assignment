@@ -1,13 +1,26 @@
 import 'package:flutter/material.dart';
 import '../utils/custom_button.dart';
+import '../../services/http_create_department_data.dart';
 
-class CreateEditDepartmentModal extends StatelessWidget {
+class CreateEditDepartmentModal extends StatefulWidget {
   const CreateEditDepartmentModal({super.key});
 
   @override
+  State<CreateEditDepartmentModal> createState() =>
+      _CreateEditDepartmentModalState();
+}
+
+class _CreateEditDepartmentModalState extends State<CreateEditDepartmentModal> {
+  final TextEditingController _departmentController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    // for getting the screen height (used for making the modal to take majority o the screen height)
-    // final screenHeight = (MediaQuery.of(context).size.height) - 100;
+    final apiService = ApiService();
 
     return SingleChildScrollView(
       child: Column(
@@ -54,6 +67,7 @@ class CreateEditDepartmentModal extends StatelessWidget {
                       width: 330,
                       height: 40,
                       child: TextField(
+                        controller: _departmentController,
                         decoration: InputDecoration(
                           hintText: 'Name',
                           border: OutlineInputBorder(
@@ -68,7 +82,10 @@ class CreateEditDepartmentModal extends StatelessWidget {
                         height: 40,
                         child: CustomButton(
                           text: 'Save',
-                          onPressed: () {},
+                          onPressed: () {
+                            var departmentName = _departmentController.text;
+                            apiService.sendPostRequest(departmentName);
+                          },
                         )),
                   ],
                 ),
