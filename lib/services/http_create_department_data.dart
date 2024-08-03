@@ -12,16 +12,16 @@ class ApiService {
         'Content-Type': 'application/json; charset=UTF-8',
       },
       body: jsonEncode(<String, String>{
-        'data': data, // Customize the data you want to send
+        'data': data,
       }),
     );
 
     if (response.statusCode == 200) {
       print(
-          '--------------------- POST request successful! --------------------- '); // Handle success
+          '--------------------- POST request successful! --------------------- ');
     } else {
       print(
-          'Error sending POST request: ${response.statusCode}'); // Handle error
+          'Error sending POST request: ${response.statusCode}');
     }
   }
 }
