@@ -6,6 +6,7 @@ class ApiService {
 
   Future<void> sendPostRequest(String data) async {
     final url = Uri.parse('$baseUrl/department/create-department');
+
     final response = await http.post(
       url,
       headers: <String, String>{
@@ -20,8 +21,7 @@ class ApiService {
       print(
           '--------------------- POST request successful! --------------------- ');
     } else {
-      print(
-          'Error sending POST request: ${response.statusCode}');
+      print('Error sending POST request: ${response.statusCode}');
     }
   }
 }
