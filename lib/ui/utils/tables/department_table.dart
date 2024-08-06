@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../services/http_get_department_data.dart';
 
 class DepartmentTable extends StatelessWidget {
   const DepartmentTable({super.key});
