@@ -85,6 +85,7 @@ class _CreateEditDepartmentModalState extends State<CreateEditDepartmentModal> {
                           onPressed: () {
                             var departmentName = _departmentController.text;
                             apiService.sendPostRequest(departmentName);
+                            Navigator.pop(context);
                           },
                         )),
                   ],
