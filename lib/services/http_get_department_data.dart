@@ -7,7 +7,6 @@ class ApiService {
   Future<List<dynamic>> fetchDepartments() async {
     final response =
         await http.get(Uri.parse('$baseUrl/department/get-departments'));
-
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
       return data['departments'];
