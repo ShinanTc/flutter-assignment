@@ -17,7 +17,7 @@ class ApiService {
       }),
     );
 
-    if (response.statusCode == 201) {
+    if (response.statusCode == 200) {
       print(
           '--------------------- POST request successful! --------------------- ');
     } else {

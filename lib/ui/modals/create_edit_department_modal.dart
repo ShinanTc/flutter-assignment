@@ -3,7 +3,9 @@ import '../utils/custom_button.dart';
 import '../../services/http_create_department_data.dart';
 
 class CreateEditDepartmentModal extends StatefulWidget {
-  const CreateEditDepartmentModal({super.key});
+  final VoidCallback onSave;
+
+  const CreateEditDepartmentModal({required this.onSave, super.key});
 
   @override
   State<CreateEditDepartmentModal> createState() =>
@@ -84,8 +86,12 @@ class _CreateEditDepartmentModalState extends State<CreateEditDepartmentModal> {
                           text: 'Save',
                           onPressed: () {
                             var departmentName = _departmentController.text;
-                            apiService.sendPostRequest(departmentName);
-                            Navigator.pop(context);
+                            apiService
+                                .sendPostRequest(departmentName)
+                                .then((_) {
+                              widget.onSave();
+                              Navigator.pop(context);
+                            });
                           },
                         )),
                   ],

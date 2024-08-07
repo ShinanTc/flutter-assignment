@@ -6,8 +6,25 @@ import '../utils/tables/employee_table.dart';
 import '../modals/create_edit_department_modal.dart';
 import '../modals/create_edit_employee_modal.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  HomeScreenState createState() => HomeScreenState();
+}
+
+class HomeScreenState extends State<HomeScreen> {
+  late GlobalKey<DepartmentTableState> _departmentTableKey;
+
+  @override
+  void initState() {
+    super.initState();
+    _departmentTableKey = GlobalKey<DepartmentTableState>();
+  }
+
+  void _refreshDepartmentTable() {
+    _departmentTableKey.currentState?.fetchDepartments();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +45,9 @@ class HomeScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     builder: (BuildContext context) {
-                      return const CreateEditDepartmentModal();
+                      return CreateEditDepartmentModal(
+                        onSave: _refreshDepartmentTable,
+                      );
                     },
                   );
                 },
@@ -36,9 +55,12 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 12),
-          const Align(
+          Align(
             alignment: Alignment.centerLeft,
-            child: Padding(padding: tablePadding, child: DepartmentTable()),
+            child: Padding(
+              padding: tablePadding,
+              child: DepartmentTable(key: _departmentTableKey),
+            ),
           ),
           const SizedBox(height: 32),
           Align(

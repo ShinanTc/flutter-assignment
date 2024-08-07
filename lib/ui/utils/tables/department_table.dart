@@ -5,17 +5,23 @@ class DepartmentTable extends StatefulWidget {
   const DepartmentTable({super.key});
 
   @override
-  State<DepartmentTable> createState() => _DepartmentTableState();
+  DepartmentTableState createState() => DepartmentTableState();
 }
 
-class _DepartmentTableState extends State<DepartmentTable> {
+class DepartmentTableState extends State<DepartmentTable> {
   late Future<List<dynamic>> _departments;
   final ApiService apiService = ApiService();
 
   @override
   void initState() {
     super.initState();
-    _departments = apiService.fetchDepartments();
+    fetchDepartments();
+  }
+
+  void fetchDepartments() {
+    setState(() {
+      _departments = apiService.fetchDepartments();
+    });
   }
 
   @override
