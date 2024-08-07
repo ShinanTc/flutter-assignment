@@ -90,10 +90,20 @@ class DepartmentTableState extends State<DepartmentTable> {
                               padding: const EdgeInsets.all(8.0),
                               child: Text((department['numberofemployees'] ?? 0)
                                   .toString()))),
-                      const TableCell(
+                      TableCell(
                           child: Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Text('Actions'))),
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                children: [
+                                  TextButton(
+                                      onPressed: () {},
+                                      child: const Text("Edit")),
+                                  const Text("|"),
+                                  TextButton(
+                                      onPressed: () {},
+                                      child: const Text("Delete"))
+                                ],
+                              ))),
                     ]);
               }),
             ],
