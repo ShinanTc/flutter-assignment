@@ -7,12 +7,14 @@ class CreateEditDepartmentModal extends StatefulWidget {
   final VoidCallback onSave;
   final int? departmentId;
   final String? departmentName;
+  final VoidCallback? onUpdate; // Add this line
 
   const CreateEditDepartmentModal(
       {required this.onSave,
       super.key,
       this.departmentId,
-      this.departmentName});
+      this.departmentName,
+      this.onUpdate});
 
   @override
   State<CreateEditDepartmentModal> createState() =>
@@ -101,10 +103,17 @@ class _CreateEditDepartmentModalState extends State<CreateEditDepartmentModal> {
                               var departmentName = _departmentController.text;
                               var departmentId = widget.departmentId;
 
-                              apiPatchService.sendPatchRequest(
-                                  departmentName, departmentId!);
-                              widget.onSave();
-                              Navigator.pop(context);
+                              apiPatchService
+                                  .sendPatchRequest(
+                                      departmentName, departmentId!)
+                                  .then((_) {
+                                widget.onSave();
+
+                                if (widget.onUpdate != null) {
+                                  widget.onUpdate!();
+                                }
+                                Navigator.pop(context);
+                              });
                             } else {
                               var departmentName = _departmentController.text;
                               apiService

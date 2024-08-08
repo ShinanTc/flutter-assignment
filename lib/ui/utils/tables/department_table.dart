@@ -18,6 +18,7 @@ class DepartmentTableState extends State<DepartmentTable> {
   void initState() {
     super.initState();
     fetchDepartments();
+    _loadDepartments();
     _departmentTableKey = GlobalKey<DepartmentTableState>();
   }
 
@@ -28,6 +29,13 @@ class DepartmentTableState extends State<DepartmentTable> {
   void fetchDepartments() {
     setState(() {
       _departments = apiService.fetchDepartments();
+    });
+  }
+
+  void _loadDepartments() {
+    setState(() {
+      _departments =
+          apiService.fetchDepartments(); // Assume you have this method
     });
   }
 
@@ -117,6 +125,7 @@ class DepartmentTableState extends State<DepartmentTable> {
                                               departmentId: department['id'],
                                               departmentName:
                                                   department['name'],
+                                              onUpdate: _loadDepartments,
                                             );
                                           },
                                         );
