@@ -17,9 +17,6 @@ class ApiDeleteService {
       }),
     );
 
-    print("response --------------------------------------------");
-    print(response.body);
-
     if (response.statusCode == 200) {
       print(
           '--------------------- DELETE request successful! --------------------- ');
