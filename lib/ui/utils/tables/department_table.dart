@@ -12,11 +12,17 @@ class DepartmentTable extends StatefulWidget {
 class DepartmentTableState extends State<DepartmentTable> {
   late Future<List<dynamic>> _departments;
   final ApiService apiService = ApiService();
+  late GlobalKey<DepartmentTableState> _departmentTableKey;
 
   @override
   void initState() {
     super.initState();
     fetchDepartments();
+    _departmentTableKey = GlobalKey<DepartmentTableState>();
+  }
+
+  void _refreshDepartmentTable() {
+    _departmentTableKey.currentState?.fetchDepartments();
   }
 
   void fetchDepartments() {
@@ -107,8 +113,9 @@ class DepartmentTableState extends State<DepartmentTable> {
                                           ),
                                           builder: (BuildContext context) {
                                             return CreateEditDepartmentModal(
-                                              onSave: () {},
-                                              // onSave: _refreshDepartmentTable,
+                                              onSave: _refreshDepartmentTable,
+                                              departmentId: department['id'],
+                                              departmentName: department['name'],
                                             );
                                           },
                                         );

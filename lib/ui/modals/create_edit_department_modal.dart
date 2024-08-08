@@ -4,8 +4,14 @@ import '../../services/http_create_department_data.dart';
 
 class CreateEditDepartmentModal extends StatefulWidget {
   final VoidCallback onSave;
+  final int? departmentId;
+  final String? departmentName;
 
-  const CreateEditDepartmentModal({required this.onSave, super.key});
+  const CreateEditDepartmentModal(
+      {required this.onSave,
+      super.key,
+      this.departmentId,
+      this.departmentName});
 
   @override
   State<CreateEditDepartmentModal> createState() =>
@@ -18,6 +24,9 @@ class _CreateEditDepartmentModalState extends State<CreateEditDepartmentModal> {
   @override
   void initState() {
     super.initState();
+    if (widget.departmentName != null) {
+      _departmentController.text = widget.departmentName!;
+    }
   }
 
   @override
