@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/services/http_delete_department_data.dart';
 import 'package:my_app/ui/modals/create_edit_department_modal.dart';
 import '../../../services/http_get_department_data.dart';
 
@@ -12,6 +13,7 @@ class DepartmentTable extends StatefulWidget {
 class DepartmentTableState extends State<DepartmentTable> {
   late Future<List<dynamic>> _departments;
   final ApiService apiService = ApiService();
+  final ApiDeleteService apiDeleteService = ApiDeleteService();
   late GlobalKey<DepartmentTableState> _departmentTableKey;
 
   @override
@@ -34,8 +36,7 @@ class DepartmentTableState extends State<DepartmentTable> {
 
   void _loadDepartments() {
     setState(() {
-      _departments =
-          apiService.fetchDepartments(); // Assume you have this method
+      _departments = apiService.fetchDepartments();
     });
   }
 
@@ -133,7 +134,11 @@ class DepartmentTableState extends State<DepartmentTable> {
                                       child: const Text("Edit")),
                                   const Text("|"),
                                   TextButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        var departmentId = department['id'];
+                                        apiDeleteService
+                                            .sendDeleteRequest(departmentId);
+                                      },
                                       child: const Text("Delete"))
                                 ],
                               ))),
