@@ -7,7 +7,7 @@ class CreateEditDepartmentModal extends StatefulWidget {
   final VoidCallback onSave;
   final int? departmentId;
   final String? departmentName;
-  final VoidCallback? onUpdate; // Add this line
+  final VoidCallback? onUpdate;
 
   const CreateEditDepartmentModal(
       {required this.onSave,

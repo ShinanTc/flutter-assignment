@@ -137,7 +137,10 @@ class DepartmentTableState extends State<DepartmentTable> {
                                       onPressed: () {
                                         var departmentId = department['id'];
                                         apiDeleteService
-                                            .sendDeleteRequest(departmentId);
+                                            .sendDeleteRequest(departmentId)
+                                            .then((_) {
+                                          _loadDepartments();
+                                        });
                                       },
                                       child: const Text("Delete"))
                                 ],
