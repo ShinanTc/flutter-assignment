@@ -22,6 +22,13 @@ class DepartmentTableState extends State<DepartmentTable> {
   }
 
   void _refreshDepartmentTable() {
+    print("_departmentTableKey -----------------------------------------------------------------------------------");
+    print(_departmentTableKey);
+
+
+    print("_departmentTableKey.currentState 00000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+    print(_departmentTableKey.currentState);
+
     _departmentTableKey.currentState?.fetchDepartments();
   }
 
