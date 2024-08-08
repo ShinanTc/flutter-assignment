@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/services/http_edit_department_data.dart';
 import '../utils/custom_button.dart';
 import '../../services/http_create_department_data.dart';
 
@@ -32,6 +33,7 @@ class _CreateEditDepartmentModalState extends State<CreateEditDepartmentModal> {
   @override
   Widget build(BuildContext context) {
     final apiService = ApiService();
+    final apiPatchService = ApiPatchService();
 
     return SingleChildScrollView(
       child: Column(
@@ -94,13 +96,24 @@ class _CreateEditDepartmentModalState extends State<CreateEditDepartmentModal> {
                         child: CustomButton(
                           text: 'Save',
                           onPressed: () {
-                            var departmentName = _departmentController.text;
-                            apiService
-                                .sendPostRequest(departmentName)
-                                .then((_) {
+                            if (widget.departmentId != null &&
+                                widget.departmentName != null) {
+                              var departmentName = _departmentController.text;
+                              var departmentId = widget.departmentId;
+
+                              apiPatchService.sendPatchRequest(
+                                  departmentName, departmentId!);
                               widget.onSave();
                               Navigator.pop(context);
-                            });
+                            } else {
+                              var departmentName = _departmentController.text;
+                              apiService
+                                  .sendPostRequest(departmentName)
+                                  .then((_) {
+                                widget.onSave();
+                                Navigator.pop(context);
+                              });
+                            }
                           },
                         )),
                   ],

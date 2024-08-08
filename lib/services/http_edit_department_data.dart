@@ -13,9 +13,9 @@ class ApiPatchService {
         'Content-Type': 'application/json; charset=UTF-8',
       },
       body: jsonEncode(
-        <String, String>{
+        <String, dynamic>{
           'data': data,
-          'department_id': departmentId.toString()
+          'department_id': departmentId
         },
       ),
     );
