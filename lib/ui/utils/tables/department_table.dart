@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/services/http_delete_department_data.dart';
+import 'package:my_app/services/department/http_delete_department_data.dart';
 import 'package:my_app/ui/modals/create_edit_department_modal.dart';
-import '../../../services/http_get_department_data.dart';
+import '../../../services/department/http_get_department_data.dart';
 
 class DepartmentTable extends StatefulWidget {
   const DepartmentTable({super.key});

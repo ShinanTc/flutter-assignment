@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/services/http_edit_department_data.dart';
+import 'package:my_app/services/department/http_edit_department_data.dart';
 import '../utils/custom_button.dart';
-import '../../services/http_create_department_data.dart';
+import '../../services/department/http_create_department_data.dart';
 
 class CreateEditDepartmentModal extends StatefulWidget {
   final VoidCallback onSave;
