@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/ui/modals/create_edit_department_modal.dart';
 import '../../../services/http_get_department_data.dart';
 
 class DepartmentTable extends StatefulWidget {
@@ -96,7 +97,22 @@ class DepartmentTableState extends State<DepartmentTable> {
                               child: Row(
                                 children: [
                                   TextButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        showModalBottomSheet(
+                                          context: context,
+                                          isScrollControlled: true,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          builder: (BuildContext context) {
+                                            return CreateEditDepartmentModal(
+                                              onSave: () {},
+                                              // onSave: _refreshDepartmentTable,
+                                            );
+                                          },
+                                        );
+                                      },
                                       child: const Text("Edit")),
                                   const Text("|"),
                                   TextButton(
