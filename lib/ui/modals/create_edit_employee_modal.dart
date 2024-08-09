@@ -144,16 +144,17 @@ class _CreateEditEmployeeModalState extends State<CreateEditEmployeeModal> {
                         child: CustomButton(
                           text: 'Save',
                           onPressed: () {
-                            if (widget.employeeId != null &&
-                                widget.employeeName != null) {
+                            if (widget.employeeId != null) {
                               var employeeName = _nameController.text;
                               var employeeId = widget.employeeId;
+                              var department = widget.department;
+                              var dob = widget.dob;
 
                               apiEmployeePatchService
-                                  .sendPatchRequest(employeeName, employeeId!)
+                                  .sendPatchRequest(employeeName, employeeId!,
+                                      department!, dob!)
                                   .then((_) {
                                 widget.onSave();
-
                                 if (widget.onUpdate != null) {
                                   widget.onUpdate!();
                                 }

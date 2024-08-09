@@ -4,7 +4,8 @@ import 'package:http/http.dart' as http;
 class ApiEmployeePatchService {
   final String baseUrl = 'http://127.0.0.1:8000';
 
-  Future<void> sendPatchRequest(String data, int employeeId) async {
+  Future<void> sendPatchRequest(
+      String name, int employeeId, String department, String dob) async {
     final url = Uri.parse('$baseUrl/employee/edit-employee');
 
     final response = await http.patch(
@@ -14,17 +15,22 @@ class ApiEmployeePatchService {
       },
       body: jsonEncode(
         <String, dynamic>{
-          'data': data,
-          'employee_id': employeeId
+          'employee_name': name,
+          'employee_id': employeeId,
+          'department': department,
+          'dob': dob
         },
       ),
     );
+
+    print("response ---------------------------------------------------");
+    print(response.body);
 
     if (response.statusCode == 200) {
       print(
           '--------------------- PATCH request successful! --------------------- ');
     } else {
-      print('Error sending POST request: ${response.statusCode}');
+      print('Error sending PATCH request: ${response.statusCode}');
     }
   }
 }
