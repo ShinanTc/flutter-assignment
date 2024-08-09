@@ -7,6 +7,8 @@ class CreateEditEmployeeModal extends StatefulWidget {
   final VoidCallback onSave;
   final int? employeeId;
   final String? employeeName;
+  final String? department;
+  final String? dob;
   final VoidCallback? onUpdate;
 
   const CreateEditEmployeeModal(
@@ -14,7 +16,9 @@ class CreateEditEmployeeModal extends StatefulWidget {
       super.key,
       this.employeeId,
       this.employeeName,
-      this.onUpdate});
+      this.onUpdate,
+      this.department,
+      this.dob});
 
   @override
   State<CreateEditEmployeeModal> createState() =>
@@ -29,8 +33,12 @@ class _CreateEditEmployeeModalState extends State<CreateEditEmployeeModal> {
   @override
   void initState() {
     super.initState();
-    if (widget.employeeName != null) {
+    if (widget.employeeName != null &&
+        widget.department != null &&
+        widget.dob != null) {
       _nameController.text = widget.employeeName!;
+      _departmentController.text = widget.department!;
+      _dobController.text = widget.dob!;
     }
   }
 

@@ -134,6 +134,10 @@ class EmployeeTableState extends State<EmployeeTable> {
                                               onSave: _refreshEmployeeTable,
                                               employeeId: employee['id'],
                                               employeeName: employee['name'],
+                                              department:
+                                                  employee['department_rel']
+                                                      ['name'],
+                                              dob: employee['dob'],
                                               onUpdate: _loadEmployees,
                                             );
                                           },
