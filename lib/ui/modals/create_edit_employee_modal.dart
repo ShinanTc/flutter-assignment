@@ -122,7 +122,7 @@ class _CreateEditEmployeeModalState extends State<CreateEditEmployeeModal> {
                       child: TextField(
                         controller: _dobController,
                         decoration: InputDecoration(
-                          hintText: 'Date of Birth',
+                          hintText: 'YYYY-MM-DD',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(3.0),
                           ),
