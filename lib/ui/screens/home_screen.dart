@@ -92,9 +92,11 @@ class HomeScreenState extends State<HomeScreen> {
             ),
           ),
           const SizedBox(height: 12),
-          const Align(
+          Align(
             alignment: Alignment.centerLeft,
-            child: Padding(padding: tablePadding, child: EmployeeTable()),
+            child: Padding(
+                padding: tablePadding,
+                child: EmployeeTable(key: _employeeTableKey)),
           ),
         ],
       ),
