@@ -15,15 +15,21 @@ class HomeScreen extends StatefulWidget {
 
 class HomeScreenState extends State<HomeScreen> {
   late GlobalKey<DepartmentTableState> _departmentTableKey;
+  late GlobalKey<EmployeeTableState> _employeeTableKey;
 
   @override
   void initState() {
     super.initState();
     _departmentTableKey = GlobalKey<DepartmentTableState>();
+    _employeeTableKey = GlobalKey<EmployeeTableState>();
   }
 
   void _refreshDepartmentTable() {
     _departmentTableKey.currentState?.fetchDepartments();
+  }
+
+  void _refreshEmployeeTable() {
+    _employeeTableKey.currentState?.fetchEmployees();
   }
 
   @override
@@ -77,7 +83,8 @@ class HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     builder: (BuildContext context) {
-                      return CreateEditEmployeeModal(onSave: () {});
+                      return CreateEditEmployeeModal(
+                          onSave: _refreshEmployeeTable);
                     },
                   );
                 },

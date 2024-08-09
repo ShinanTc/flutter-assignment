@@ -29,9 +29,9 @@ class _CreateEditEmployeeModalState extends State<CreateEditEmployeeModal> {
   @override
   void initState() {
     super.initState();
-    // if (widget.employeeName != null) {
-    //   _employeeController.text = widget.employeeName!;
-    // }
+    if (widget.employeeName != null) {
+      _nameController.text = widget.employeeName!;
+    }
   }
 
   @override
@@ -136,32 +136,33 @@ class _CreateEditEmployeeModalState extends State<CreateEditEmployeeModal> {
                         child: CustomButton(
                           text: 'Save',
                           onPressed: () {
-                            // if (widget.employeeId != null &&
-                            //     widget.employeeName != null) {
-                            //   var employeeName = _employeeController.text;
-                            //   var employeeId = widget.employeeId;
+                            if (widget.employeeId != null &&
+                                widget.employeeName != null) {
+                              var employeeName = _nameController.text;
+                              var employeeId = widget.employeeId;
 
-                            //   apiEmployeePatchService
-                            //       .sendPatchRequest(employeeName, employeeId!)
-                            //       .then((_) {
-                            //     widget.onSave();
+                              apiEmployeePatchService
+                                  .sendPatchRequest(employeeName, employeeId!)
+                                  .then((_) {
+                                widget.onSave();
 
-                            //     if (widget.onUpdate != null) {
-                            //       widget.onUpdate!();
-                            //     }
-                            // Navigator.pop(context);
-                            // });
-                            // } else {
-                            var employeeName = _nameController.text;
-                            var department = _departmentController.text;
-                            var dob = _dobController.text;
-                            apiEmployeeService
-                                .sendPostRequest(employeeName, department, dob)
-                                .then((_) {
-                              widget.onSave();
-                              Navigator.pop(context);
-                            });
-                            // }
+                                if (widget.onUpdate != null) {
+                                  widget.onUpdate!();
+                                }
+                                Navigator.pop(context);
+                              });
+                            } else {
+                              var employeeName = _nameController.text;
+                              var department = _departmentController.text;
+                              var dob = _dobController.text;
+                              apiEmployeeService
+                                  .sendPostRequest(
+                                      employeeName, department, dob)
+                                  .then((_) {
+                                widget.onSave();
+                                Navigator.pop(context);
+                              });
+                            }
                           },
                         )),
                   ],
