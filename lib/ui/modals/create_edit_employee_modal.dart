@@ -147,8 +147,8 @@ class _CreateEditEmployeeModalState extends State<CreateEditEmployeeModal> {
                             if (widget.employeeId != null) {
                               var employeeName = _nameController.text;
                               var employeeId = widget.employeeId;
-                              var department = widget.department;
-                              var dob = widget.dob;
+                              var department = _departmentController.text;
+                              var dob = _dobController.text;
 
                               apiEmployeePatchService
                                   .sendPatchRequest(employeeName, employeeId!,
@@ -163,6 +163,7 @@ class _CreateEditEmployeeModalState extends State<CreateEditEmployeeModal> {
                             } else {
                               var employeeName = _nameController.text;
                               var department = _departmentController.text;
+
                               var dob = _dobController.text;
                               apiEmployeeService
                                   .sendPostRequest(
