@@ -105,7 +105,7 @@ class DepartmentTableState extends State<DepartmentTable> {
                       TableCell(
                           child: Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Text((department['numberofemployees'] ?? 0)
+                              child: Text((department['numberofemployees'])
                                   .toString()))),
                       TableCell(
                           child: Padding(
