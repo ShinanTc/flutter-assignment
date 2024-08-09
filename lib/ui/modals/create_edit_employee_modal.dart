@@ -149,16 +149,18 @@ class _CreateEditEmployeeModalState extends State<CreateEditEmployeeModal> {
                             //     if (widget.onUpdate != null) {
                             //       widget.onUpdate!();
                             //     }
-                            Navigator.pop(context);
+                            // Navigator.pop(context);
                             // });
                             // } else {
-                            // var employeeName = _employeeController.text;
-                            // apiEmployeeService
-                            //     .sendPostRequest(employeeName)
-                            //     .then((_) {
-                            //   widget.onSave();
-                            //   Navigator.pop(context);
-                            // });
+                            var employeeName = _nameController.text;
+                            var department = _departmentController.text;
+                            var dob = _dobController.text;
+                            apiEmployeeService
+                                .sendPostRequest(employeeName, department, dob)
+                                .then((_) {
+                              widget.onSave();
+                              Navigator.pop(context);
+                            });
                             // }
                           },
                         )),
