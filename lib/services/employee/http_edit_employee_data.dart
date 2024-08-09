@@ -23,9 +23,6 @@ class ApiEmployeePatchService {
       ),
     );
 
-    print("response ---------------------------------------------------");
-    print(response.body);
-
     if (response.statusCode == 200) {
       print(
           '--------------------- PATCH request successful! --------------------- ');
