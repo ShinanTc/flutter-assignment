@@ -22,14 +22,16 @@ class CreateEditEmployeeModal extends StatefulWidget {
 }
 
 class _CreateEditEmployeeModalState extends State<CreateEditEmployeeModal> {
-  final TextEditingController _employeeController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _departmentController = TextEditingController();
+  final TextEditingController _dobController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    if (widget.employeeName != null) {
-      _employeeController.text = widget.employeeName!;
-    }
+    // if (widget.employeeName != null) {
+    //   _employeeController.text = widget.employeeName!;
+    // }
   }
 
   @override
@@ -82,9 +84,45 @@ class _CreateEditEmployeeModalState extends State<CreateEditEmployeeModal> {
                       width: 330,
                       height: 40,
                       child: TextField(
-                        controller: _employeeController,
+                        controller: _nameController,
                         decoration: InputDecoration(
                           hintText: 'Name',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(3.0),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 25),
+                    const Text(
+                      "Department",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      width: 330,
+                      height: 40,
+                      child: TextField(
+                        controller: _departmentController,
+                        decoration: InputDecoration(
+                          hintText: 'Department',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(3.0),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 25),
+                    const Text(
+                      "Date of Birth",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      width: 330,
+                      height: 40,
+                      child: TextField(
+                        controller: _dobController,
+                        decoration: InputDecoration(
+                          hintText: 'Date of Birth',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(3.0),
                           ),
@@ -98,30 +136,30 @@ class _CreateEditEmployeeModalState extends State<CreateEditEmployeeModal> {
                         child: CustomButton(
                           text: 'Save',
                           onPressed: () {
-                            if (widget.employeeId != null &&
-                                widget.employeeName != null) {
-                              var employeeName = _employeeController.text;
-                              var employeeId = widget.employeeId;
+                            // if (widget.employeeId != null &&
+                            //     widget.employeeName != null) {
+                            //   var employeeName = _employeeController.text;
+                            //   var employeeId = widget.employeeId;
 
-                              apiEmployeePatchService
-                                  .sendPatchRequest(employeeName, employeeId!)
-                                  .then((_) {
-                                widget.onSave();
+                            //   apiEmployeePatchService
+                            //       .sendPatchRequest(employeeName, employeeId!)
+                            //       .then((_) {
+                            //     widget.onSave();
 
-                                if (widget.onUpdate != null) {
-                                  widget.onUpdate!();
-                                }
-                                Navigator.pop(context);
-                              });
-                            } else {
-                              var employeeName = _employeeController.text;
-                              apiEmployeeService
-                                  .sendPostRequest(employeeName)
-                                  .then((_) {
-                                widget.onSave();
-                                Navigator.pop(context);
-                              });
-                            }
+                            //     if (widget.onUpdate != null) {
+                            //       widget.onUpdate!();
+                            //     }
+                            Navigator.pop(context);
+                            // });
+                            // } else {
+                            // var employeeName = _employeeController.text;
+                            // apiEmployeeService
+                            //     .sendPostRequest(employeeName)
+                            //     .then((_) {
+                            //   widget.onSave();
+                            //   Navigator.pop(context);
+                            // });
+                            // }
                           },
                         )),
                   ],
