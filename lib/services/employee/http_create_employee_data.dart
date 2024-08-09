@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-class ApiDepartmentPostService {
+class ApiEmployeeService {
   final String baseUrl = 'http://127.0.0.1:8000';
 
   Future<void> sendPostRequest(String data) async {
-    final url = Uri.parse('$baseUrl/department/create-department');
+    final url = Uri.parse('$baseUrl/employee/create-employee');
 
     final response = await http.post(
       url,

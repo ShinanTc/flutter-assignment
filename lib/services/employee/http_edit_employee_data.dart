@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-class ApiDepartmentPatchService {
+class ApiEmployeePatchService {
   final String baseUrl = 'http://127.0.0.1:8000';
 
-  Future<void> sendPatchRequest(String data, int departmentId) async {
-    final url = Uri.parse('$baseUrl/department/edit-department');
+  Future<void> sendPatchRequest(String data, int employeeId) async {
+    final url = Uri.parse('$baseUrl/employee/edit-employee');
 
     final response = await http.patch(
       url,
@@ -15,7 +15,7 @@ class ApiDepartmentPatchService {
       body: jsonEncode(
         <String, dynamic>{
           'data': data,
-          'department_id': departmentId
+          'employee_id': employeeId
         },
       ),
     );

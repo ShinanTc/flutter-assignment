@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-class ApiDepartmentDeleteService {
+class ApiEmployeeDeleteService {
   final String baseUrl = 'http://127.0.0.1:8000';
 
-  Future<void> sendDeleteRequest(int departmentId) async {
-    final url = Uri.parse('$baseUrl/department/delete-department');
+  Future<void> sendDeleteRequest(int employeeId) async {
+    final url = Uri.parse('$baseUrl/employee/delete-employee');
 
     final response = await http.delete(
       url,
@@ -13,7 +13,7 @@ class ApiDepartmentDeleteService {
         'Content-Type': 'application/json; charset=UTF-8',
       },
       body: jsonEncode(<String, int>{
-        'department_id': departmentId,
+        'employee_id': employeeId,
       }),
     );
 

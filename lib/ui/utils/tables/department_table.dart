@@ -12,8 +12,9 @@ class DepartmentTable extends StatefulWidget {
 
 class DepartmentTableState extends State<DepartmentTable> {
   late Future<List<dynamic>> _departments;
-  final ApiService apiService = ApiService();
-  final ApiDeleteService apiDeleteService = ApiDeleteService();
+  final ApiDepartmentService apiDepartmentService = ApiDepartmentService();
+  final ApiDepartmentDeleteService apiDeleteService =
+      ApiDepartmentDeleteService();
   late GlobalKey<DepartmentTableState> _departmentTableKey;
 
   @override
@@ -30,13 +31,13 @@ class DepartmentTableState extends State<DepartmentTable> {
 
   void fetchDepartments() {
     setState(() {
-      _departments = apiService.fetchDepartments();
+      _departments = apiDepartmentService.fetchDepartments();
     });
   }
 
   void _loadDepartments() {
     setState(() {
-      _departments = apiService.fetchDepartments();
+      _departments = apiDepartmentService.fetchDepartments();
     });
   }
 

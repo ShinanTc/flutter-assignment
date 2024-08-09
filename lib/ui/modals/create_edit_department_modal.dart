@@ -34,8 +34,8 @@ class _CreateEditDepartmentModalState extends State<CreateEditDepartmentModal> {
 
   @override
   Widget build(BuildContext context) {
-    final apiService = ApiService();
-    final apiPatchService = ApiPatchService();
+    final apiDepartmentService = ApiDepartmentPostService();
+    final apiDepartmentPatchService = ApiDepartmentPatchService();
 
     return SingleChildScrollView(
       child: Column(
@@ -103,7 +103,7 @@ class _CreateEditDepartmentModalState extends State<CreateEditDepartmentModal> {
                               var departmentName = _departmentController.text;
                               var departmentId = widget.departmentId;
 
-                              apiPatchService
+                              apiDepartmentPatchService
                                   .sendPatchRequest(
                                       departmentName, departmentId!)
                                   .then((_) {
@@ -116,7 +116,7 @@ class _CreateEditDepartmentModalState extends State<CreateEditDepartmentModal> {
                               });
                             } else {
                               var departmentName = _departmentController.text;
-                              apiService
+                              apiDepartmentService
                                   .sendPostRequest(departmentName)
                                   .then((_) {
                                 widget.onSave();
