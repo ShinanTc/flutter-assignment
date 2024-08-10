@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/services/employee/http_delete_employee_data.dart';
 import 'package:my_app/ui/modals/create_edit_employee_modal.dart';
+import 'package:my_app/ui/utils/tables/department_table.dart';
 import '../../../services/employee/http_get_employee_data.dart';
 
 class EmployeeTable extends StatefulWidget {
-  const EmployeeTable({super.key});
+  final GlobalKey<DepartmentTableState>? departmentTableKey;
+  const EmployeeTable({super.key, this.departmentTableKey});
 
   @override
   EmployeeTableState createState() => EmployeeTableState();
@@ -152,6 +154,9 @@ class EmployeeTableState extends State<EmployeeTable> {
                                             .sendDeleteRequest(employeeId)
                                             .then((_) {
                                           _loadEmployees();
+                                          widget
+                                              .departmentTableKey?.currentState
+                                              ?.fetchDepartments();
                                         });
                                       },
                                       child: const Text("Delete"))

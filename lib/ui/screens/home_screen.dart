@@ -7,7 +7,8 @@ import '../modals/create_edit_department_modal.dart';
 import '../modals/create_edit_employee_modal.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final GlobalKey<DepartmentTableState>? departmentTableKey;
+  const HomeScreen({super.key, this.departmentTableKey});
 
   @override
   HomeScreenState createState() => HomeScreenState();
@@ -98,7 +99,10 @@ class HomeScreenState extends State<HomeScreen> {
             alignment: Alignment.centerLeft,
             child: Padding(
                 padding: tablePadding,
-                child: EmployeeTable(key: _employeeTableKey)),
+                child: EmployeeTable(
+                  key: _employeeTableKey,
+                  departmentTableKey: _departmentTableKey,
+                )),
           ),
         ],
       ),
