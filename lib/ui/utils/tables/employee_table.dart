@@ -140,7 +140,12 @@ class EmployeeTableState extends State<EmployeeTable> {
                                                   employee['department_rel']
                                                       ['name'],
                                               dob: employee['dob'],
-                                              onUpdate: _loadEmployees,
+                                              onUpdate: () {
+                                                _loadEmployees();
+                                                widget.departmentTableKey
+                                                    ?.currentState
+                                                    ?.fetchDepartments();
+                                              },
                                             );
                                           },
                                         );
