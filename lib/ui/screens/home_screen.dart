@@ -83,8 +83,10 @@ class HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     builder: (BuildContext context) {
-                      return CreateEditEmployeeModal(
-                          onSave: _refreshEmployeeTable);
+                      return CreateEditEmployeeModal(onSave: () {
+                        _refreshEmployeeTable();
+                        _refreshDepartmentTable();
+                      });
                     },
                   );
                 },
